@@ -7,8 +7,20 @@ public class GameManager : MonoBehaviour
     public Player player;
     public ParticleSystem explosion;
     public float respawnTime = 3.0f;
-    public int lives = 3;
+    public int lives = 10;
     public int score = 0;
+
+    private void Awake() {
+        int numGameManagers = FindObjectsOfType<GameManager>().Length;
+        Debug.Log(numGameManagers);
+        if (numGameManagers > 1) {
+            Destroy(this.gameObject);
+        }
+        else {
+            DontDestroyOnLoad(this.gameObject);
+        }
+    }
+
     public void PlayerDied() {
         this.explosion.transform.position = this.player.transform.position; // has same position as player
         this.explosion.Play();
@@ -19,11 +31,21 @@ public class GameManager : MonoBehaviour
              Invoke(nameof(Respawn), this.respawnTime);
         }
     }
-    public void AsteroidDestroyed(Asteroid asteroid) {
-        this.explosion.transform.position = asteroid.transform.position; // has same position as player
+    public void CambridgeDestroyed(Cambridge cambridge) {
+        this.explosion.transform.position = cambridge.transform.position; // has same position as cambridge
         this.explosion.Play();
 
-        // TODO: Increase Score
+        if ((cambridge.size * 0.5f) >= cambridge.minSize) {
+            score += 100;
+        }
+        else {
+            score += 50;
+        }
+        Debug.Log(score);
+    }
+    public void InsurrectionistAttacked(Insurrectionist insurrectionist) {
+        // TO DO: Trigger insurrectionist sound effect first
+        this.player.hitInsurrectionist();
     }
     private void Respawn() {
         this.player.transform.position = Vector3.zero; // reset player position to 0
@@ -31,6 +53,6 @@ public class GameManager : MonoBehaviour
         this.player.gameObject.SetActive(true); // start/enable player game object again 
     }
     private void GameOver() {
-        // TODO:
+        Debug.Log("Game Over");
     }
 }

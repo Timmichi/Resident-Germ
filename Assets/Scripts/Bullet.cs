@@ -14,7 +14,10 @@ public class Bullet : MonoBehaviour {
         _rigidBody.AddForce(direction * this.speed);
         Destroy(this.gameObject, this.maxLifetime);
     }
-    private void OnCollisionEnter2D(Collision2D collision) { // will get called whenever objects collide with something else
+    // private void OnCollisionEnter2D(Collision2D collision) { // will get called whenever objects collide with something else
+    //     Destroy(this.gameObject);
+    // }
+    private void OnTriggerEnter2D(Collider2D other) {
         Destroy(this.gameObject);
     }
 }

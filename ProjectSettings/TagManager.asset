@@ -18,7 +18,7 @@ TagManager:
   - Asteroid
   - Boundary
   - Ignore Collisions
-  - 
+  - Exit
   - 
   - 
   - 
@@ -42,4 +42,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Asteroid
+    uniqueID: 539326189
+    locked: 0
+  - name: Bullet
+    uniqueID: 2888528633
+    locked: 0
+  - name: Exit
+    uniqueID: 22939357
+    locked: 0
+  - name: Player
+    uniqueID: 124102647
     locked: 0

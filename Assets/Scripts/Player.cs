@@ -57,4 +57,12 @@ public class Player : MonoBehaviour
             FindObjectOfType<GameManager>().PlayerDied(); //gets a global reference and calls it. Costly because it has to look through every game object in your scene, and every component
         }
     }
+
+    public void hitInsurrectionist() {
+        _rigidBody.velocity = Vector3.zero; // stops movement
+        _rigidBody.angularVelocity = 0.0f; // stops rotation
+        this.gameObject.SetActive(false); // turns off the entire game object until player is turned back on
+        FindObjectOfType<GameManager>().PlayerDied(); //gets a global reference and calls it. Costly because it has to look through every game object in your scene, and every component
+    }
+
 }
