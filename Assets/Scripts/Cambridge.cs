@@ -20,7 +20,7 @@ public class Cambridge : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.transform.eulerAngles = new Vector3(0.0f, 0.0f, Random.value * 360.0f);
+        // this.transform.eulerAngles = new Vector3(0.0f, 0.0f, Random.value * 360.0f);
         this.transform.localScale = Vector3.one * size;
         myRigidBody.mass = size;
     }
@@ -34,12 +34,12 @@ public class Cambridge : MonoBehaviour
             if ((size * 0.5f) >= minSize) {
                 if (lives > 1) {
                     lives -= 1;
-                    Debug.Log(lives);
                 }
                 else {
                     lives -= 1;
                     createSplit();
                     createSplit();
+                    FindObjectOfType<GameManager>().cambridgeDestroyed(this);
                     FindObjectOfType<GameManager>().cambridgeDestroyed(this);
                     Destroy(this.gameObject);
                 }

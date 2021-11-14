@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         int numGameManagers = FindObjectsOfType<GameManager>().Length;
-        Debug.Log(numGameManagers);
         if (numGameManagers > 1) {
             Destroy(this.gameObject);
         }
@@ -28,6 +27,15 @@ public class GameManager : MonoBehaviour
         else {
             score += 50;
         }
+        Debug.Log(score);
+    }
+    public void articleDestroyed() {
+        score += 300;
+        Debug.Log(score);
+    }
+    public void insurrectionistAttacked() {
+        playerLives--;
+        score -= 200;
         Debug.Log(score);
     }
     public void processPlayerDeath() {

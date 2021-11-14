@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     public Bullet bulletPrefab;
     CapsuleCollider2D myCollider;
     Vector2 moveInput;
+    bool shotWrongEnemy = false; 
+    bool hitByEnemyBullet = false;
     void Awake()
     {
         myRigidBody = GetComponent<Rigidbody2D>();
@@ -56,9 +58,15 @@ public class PlayerMovement : MonoBehaviour
             myRigidBody.AddTorque(-1*moveInput.x * turnSpeed);
         }
     }
+    public void changeShotWrongEnemy() {
+        shotWrongEnemy = true;
+    }
+    public void changeHitByEnemyBullet() {
+        hitByEnemyBullet = true;
+    }
 
-    void die() {
-        if (myCollider.IsTouchingLayers(LayerMask.GetMask("Enemy"))) {
+    public void die() {
+        if (myCollider.IsTouchingLayers(LayerMask.GetMask("Enemy")) || shotWrongEnemy || hitByEnemyBullet) {
             myRigidBody.velocity = Vector3.zero; // stops movement
             myRigidBody.angularVelocity = 0.0f; // stops rotation
             Destroy(this.gameObject);

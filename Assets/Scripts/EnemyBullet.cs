@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class EnemyBullet : MonoBehaviour
 {
     public float speed = 500.0f;
     public float maxLifetime = 10.0f;
@@ -17,9 +17,9 @@ public class Bullet : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other) { // will get called whenever objects collide with something else
         Destroy(this.gameObject);
-        if (other.tag == "Insurrectionist") {
+        if (other.tag == "Player") {
            playerMovement = FindObjectOfType<PlayerMovement>();
-           playerMovement.changeShotWrongEnemy();
+           playerMovement.changeHitByEnemyBullet();
            playerMovement.die();
         }
     }
