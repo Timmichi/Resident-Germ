@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 726467329
+  m_SortingLayerID: 22939357
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: aeea851656b5e59449565de151d5bfd0, type: 3}
@@ -168,4 +168,5 @@ MonoBehaviour:
   turnSpeed: 0.5
   thrustSpeed: 3
   respawnInvulnerabilityTime: 3
+  bulletSpawnDistance: 1
   bulletPrefab: {fileID: -1544213489122784986, guid: 3e7e4861672933e44b3ee3df5163cee5, type: 3}
