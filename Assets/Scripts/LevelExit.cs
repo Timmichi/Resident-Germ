@@ -4,8 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class LevelExit : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag == "Player") {
+    int player;
+    void Awake()
+    {
+        player = LayerMask.NameToLayer("Player");
+    }
+    void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.layer == player) {
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
             SceneManager.LoadScene(currentSceneIndex+1);
         }     
