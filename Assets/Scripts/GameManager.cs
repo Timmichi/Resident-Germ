@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public PlayerMovement playerPrefab;
     public int playerLives = 3;
     public int score = 0;
+    int oldSceneIndex;
+    int currentSceneIndex;
+    Coroutine levelCoroutine;
+    bool restartCoroutine = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +22,42 @@ public class GameManager : MonoBehaviour
         else {
             DontDestroyOnLoad(this.gameObject);
         }
+        currentSceneIndex = oldSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        levelCoroutine = StartCoroutine(goToNextLevel());
+    }
+    void Update() {
+        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        if (oldSceneIndex != currentSceneIndex) {
+            oldSceneIndex = currentSceneIndex;
+            Debug.Log(currentSceneIndex);
+            levelCoroutine = StartCoroutine(goToNextLevel());
+        }
+    }
+
+    IEnumerator goToNextLevel() {
+        int duration = 0;
+        if (currentSceneIndex == 0) {
+            while (score < 500 && duration < 60) {
+                duration++;
+                Debug.Log(duration);
+                yield return new WaitForSeconds(1);
+            }
+        }
+        else if (currentSceneIndex == 1) {
+            while (score < 1000 && duration < 60) {
+                duration++;
+                Debug.Log(duration);
+                yield return new WaitForSeconds(1);
+            }
+        }
+        else if (currentSceneIndex == 2) {
+            while (score < 1500 && duration < 60) {
+                duration++;
+                Debug.Log(duration);
+                yield return new WaitForSeconds(1);
+            }
+        }
+        SceneManager.LoadScene(currentSceneIndex+1);
     }
     public void cambridgeDestroyed(Cambridge cambridge) {
         // this.explosion.transform.position = cambridge.transform.position; // has same position as cambridge
