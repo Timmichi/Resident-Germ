@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     int oldSceneIndex;
     int currentSceneIndex;
     Coroutine levelCoroutine;
-    bool restartCoroutine = false;
+    // public ParticleSystem explosion;
     // Start is called before the first frame update
     void Start()
     {

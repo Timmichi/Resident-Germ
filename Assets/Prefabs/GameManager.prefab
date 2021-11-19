@@ -46,3 +46,4 @@ MonoBehaviour:
   playerPrefab: {fileID: 6040174625935400994, guid: 98a419480506b2d4597fbd33a25e8997, type: 3}
   playerLives: 3
   score: 0
+  explosion: {fileID: 2473760981454945442, guid: 85c37ca7f9809814c9f1f5de002798ed, type: 3}
