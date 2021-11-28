@@ -30,33 +30,34 @@ public class GameManager : MonoBehaviour
         if (oldSceneIndex != currentSceneIndex) {
             oldSceneIndex = currentSceneIndex;
             Debug.Log(currentSceneIndex);
-            levelCoroutine = StartCoroutine(goToNextLevel());
+            //levelCoroutine = StartCoroutine(goToNextLevel()); doubling up on next level jumps
         }
     }
 
     IEnumerator goToNextLevel() {
         int duration = 0;
-        if (currentSceneIndex == 0) {
+        if (currentSceneIndex == 2) {
             while (score < 500 && duration < 60) {
                 duration++;
                 Debug.Log(duration);
                 yield return new WaitForSeconds(1);
             }
         }
-        else if (currentSceneIndex == 1) {
+        else if (currentSceneIndex == 4) {
             while (score < 1000 && duration < 60) {
                 duration++;
                 Debug.Log(duration);
                 yield return new WaitForSeconds(1);
             }
         }
-        else if (currentSceneIndex == 2) {
+        else if (currentSceneIndex == 6) {
             while (score < 1500 && duration < 60) {
                 duration++;
                 Debug.Log(duration);
                 yield return new WaitForSeconds(1);
             }
         }
+        print("Game Manager - Going to scene " + (currentSceneIndex+1));
         SceneManager.LoadScene(currentSceneIndex+1);
     }
     public void cambridgeDestroyed(Cambridge cambridge) {
