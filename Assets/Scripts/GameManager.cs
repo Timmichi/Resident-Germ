@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
         if (oldSceneIndex != currentSceneIndex) {
             oldSceneIndex = currentSceneIndex;
             Debug.Log(currentSceneIndex);
-            //levelCoroutine = StartCoroutine(goToNextLevel()); doubling up on next level jumps
+            levelCoroutine = StartCoroutine(goToNextLevel());
         }
     }
 
@@ -57,8 +57,12 @@ public class GameManager : MonoBehaviour
                 yield return new WaitForSeconds(1);
             }
         }
-        print("Game Manager - Going to scene " + (currentSceneIndex+1));
-        SceneManager.LoadScene(currentSceneIndex+1);
+        // Only load the next scene if we are currently on a level scene.
+        if (currentSceneIndex % 2 == 0) {
+            print("Game Manager - Going to scene " + (currentSceneIndex+1));
+            SceneManager.LoadScene(currentSceneIndex+1);
+        }
+       
     }
     public void cambridgeDestroyed(Cambridge cambridge) {
         // this.explosion.transform.position = cambridge.transform.position; // has same position as cambridge
