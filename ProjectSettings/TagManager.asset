@@ -7,6 +7,8 @@ TagManager:
   - Bullet
   - Insurrectionist
   - Enemy Bullet
+  - Life Canvas
+  - Game Manager
   layers:
   - Default
   - TransparentFX

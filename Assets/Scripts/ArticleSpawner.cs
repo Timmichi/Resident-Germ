@@ -5,7 +5,7 @@ using UnityEngine;
 public class ArticleSpawner : MonoBehaviour
 {
     [SerializeField] float trajectoryVariance = 15.0f;
-    [SerializeField] float spawnRate = 7.0f;
+    [SerializeField] float spawnRate = 3.0f;
     [SerializeField] float spawnDistance = 15.0f;
     [SerializeField] int spawnAmount = 1;
     public Article articlePrefab;
