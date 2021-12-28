@@ -12,7 +12,7 @@ Clone the Repo.
 Run the .exe file.
 
 ### YouTube Demo
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/watch?v=6OdL7-Ev01Y/0.jpg)](http://www.youtube.com/watch?v=6OdL7-Ev01Y "Zucky Wucky Simulator")
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/6OdL7-Ev01Y/0.jpg)](http://www.youtube.com/watch?v=6OdL7-Ev01Y "Zucky Wucky Simulator")
 
 
 ### Game instructions via Website
