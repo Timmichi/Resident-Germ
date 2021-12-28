@@ -1,8 +1,8 @@
 # Zucky Wucky Simulator
 
-Developed by Timothy Simanhadi, Tiger Chiang
-Designed by Palak Jain, Calvin Nguyen
-Website created by Chen Zhao
+Developed by Timothy Simanhadi, Tiger Chiang  
+Designed by Palak Jain, Calvin Nguyen  
+Website created by Chen Zhao  
 
 ### Description
 A story shooter game guiding you through the life of one of the most famous and controversial “humans” of our time. You will be going on a journey as Mark Zuckerberg himself. You’ll do some shady things, you may get in trouble, and you may have to clean up some messes. But hey! You’ll make a lot of money while doing it.
